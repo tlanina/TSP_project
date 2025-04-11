@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TSP_DMM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0a478b979e5f6401003ca06fc3cbe43bf6ff3e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("TSP_DMM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TSP_DMM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
