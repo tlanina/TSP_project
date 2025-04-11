@@ -1,24 +1,25 @@
-using System;
-using System.Collections.Generic;
+ using Spectre.Console;
+ using TSP_DMM;
 
-namespace TSP_DMM
-{
-    public class AdjacencyMatrix : Graph
+ public class AdjacencyMatrix : Graph
     {
         private double[,] matrix;
-        private static Random rand = new Random();  
+        private static Random rand = new Random();
+        private double[,] edgeWeights;
 
-        public AdjacencyMatrix(int verticesCount)
+        public AdjacencyMatrix(int verticesCount, double[,] sharedEdgeWeights)
         {
             VerticesCount = verticesCount;
             matrix = new double[verticesCount, verticesCount];
+            edgeWeights = new double[verticesCount, verticesCount];
 
+            Array.Copy(sharedEdgeWeights, edgeWeights, sharedEdgeWeights.Length);
 
             for (int i = 0; i < VerticesCount; i++)
             {
-                for (int j = i + 1; j < VerticesCount; j++) 
+                for (int j = i + 1; j < VerticesCount; j++)
                 {
-                    double weight = rand.Next(1, 100); 
+                    double weight = edgeWeights[i, j];
                     AddEdge(i, j, weight);
                 }
             }
@@ -38,25 +39,42 @@ namespace TSP_DMM
             return matrix[u, v] > 0;
         }
 
-        public override int GetWeight(int u, int v)
+        public override double GetWeight(int u, int v)
         {
-            return (int)matrix[u, v];
+            return edgeWeights[u, v];
         }
 
         public override List<(int, double)> GetNeighbors(int u)
         {
-            return Enumerable.Range(0, VerticesCount).Where(v => matrix[u, v] > 0).Select(v => (v, matrix[u, v])).ToList();
+            List<(int, double)> neighbors = new List<(int, double)>();
+            for (int v = 0; v < VerticesCount; v++)
+            {
+                if (matrix[u, v] > 0)
+                    neighbors.Add((v, matrix[u, v]));
+            }
+            return neighbors;
         }
 
         public void PrintMatrix()
         {
-            Console.WriteLine("Матриця суміжності:");
+            var table = new Table();
+            table.AddColumn(" ");
+            
             for (int i = 0; i < VerticesCount; i++)
             {
-                for (int j = 0; j < VerticesCount; j++)
-                    Console.Write($"{matrix[i, j],4}");
-                Console.WriteLine();
+                table.AddColumn(i.ToString());
             }
+            
+            for (int i = 0; i < VerticesCount; i++)
+            {
+                var row = new string[VerticesCount + 1];
+                row[0] = i.ToString();
+                for (int j = 0; j < VerticesCount; j++)
+                {
+                    row[j + 1] = matrix[i, j].ToString();
+                }
+                table.AddRow(row);
+            }
+            AnsiConsole.Write(table);
         }
     }
-}

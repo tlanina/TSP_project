@@ -13,3 +13,6 @@ C:\Users\tanya\OneDrive\Desktop\DMM_prpject\TSP\obj\Debug\net9.0\refint\TSP_DMM.
 C:\Users\tanya\OneDrive\Desktop\DMM_prpject\TSP\obj\Debug\net9.0\TSP_DMM.pdb
 C:\Users\tanya\OneDrive\Desktop\DMM_prpject\TSP\obj\Debug\net9.0\TSP_DMM.genruntimeconfig.cache
 C:\Users\tanya\OneDrive\Desktop\DMM_prpject\TSP\obj\Debug\net9.0\ref\TSP_DMM.dll
+C:\Users\tanya\OneDrive\Desktop\DMM_prpject\TSP\bin\Debug\net9.0\Spectre.Console.dll
+C:\Users\tanya\OneDrive\Desktop\DMM_prpject\TSP\obj\Debug\net9.0\TSP_DMM.csproj.AssemblyReference.cache
+C:\Users\tanya\OneDrive\Desktop\DMM_prpject\TSP\obj\Debug\net9.0\TSP_DMM.csproj.Up2Date
